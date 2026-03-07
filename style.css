@@ -1,0 +1,293 @@
+/* GENERAL */
+body{
+  font-family:'Poppins',sans-serif;
+  margin:0;
+  background:#f2f2f2;
+  text-align:center;
+}
+
+header{
+  background:#1a1a2e;
+  color:white;
+  padding:15px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo img{
+  width:50px;
+  height:auto;
+  object-fit:cover;
+  border-radius:50%;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+/* HEADER NAV LINKS */
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+}
+
+nav a:hover{
+  color:#ffdd59;
+}
+
+/* HEADER ICON (RIGHT SIDE) */
+.header-icon{
+  width:50px;       /* circle size */
+  height:50px;      /* circle size */
+  border-radius:50%;
+  object-fit:cover;  /* image poora fill ho */
+  cursor:pointer;
+  margin-left:10px;
+  transition: transform 0.3s ease;
+}
+
+.header-icon:hover{
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* HERO SECTION */
+.hero{
+  background: linear-gradient(135deg,#162447,#1f4068);
+  color: white;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 320px;
+}
+
+.hero-content h2{
+  font-size:36px;
+  margin-bottom: 10px;
+}
+
+.hero-content p{
+  font-size:18px;
+  margin-bottom: 15px;
+}
+
+.hero-btn{
+  padding:12px 25px;
+  font-size:16px;
+  margin-bottom: 15px;
+  background:#ffdd59;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover{
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  background:#ffcc00;
+}
+
+/* FOLLOW US heading + description */
+.follow-text h3{
+  margin-top:20px;
+  margin-bottom:5px;
+  font-size:20px;
+  color:#ffdd59;
+}
+
+.follow-text p{
+  margin-bottom:10px;
+  font-size:16px;
+  color:#ffffff;
+}
+
+/* Follow buttons */
+.channel-buttons{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+
+.channel-buttons button{
+  padding:10px 20px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:16px;
+  transition: all 0.3s ease;
+}
+
+.youtube-btn{
+  background:#ff0000;
+  color:white;
+}
+
+.youtube-btn:hover{
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  background:#cc0000;
+}
+
+.telegram-btn{
+  background:#0088cc;
+  color:white;
+}
+
+.telegram-btn:hover{
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  background:#0077b6;
+}
+
+.whatsapp-btn{
+  background:#25D366;
+  color:white;
+}
+
+.whatsapp-btn:hover{
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  background:#1ebe57;
+}
+
+/* COURSES */
+.course-container{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:25px;
+  margin-top:30px;
+}
+
+.course-box{
+  background:white;
+  padding:25px;
+  width:250px;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  text-align:center;
+}
+
+.course-box img{
+  width: auto;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+/* FORM */
+form{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  max-width:400px;
+  margin:auto;
+}
+
+input,textarea{
+  width:100%;
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+form button{
+  padding:12px 25px;
+  background:#ffdd59;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  transition: all 0.3s ease;
+}
+
+form button:hover{
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  background:#ffcc00;
+}
+
+/* ABOUT */
+.about-container{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:30px;
+  padding:50px;
+}
+
+.about-text {
+  width: 100%;
+  max-width: 100%;
+  text-align: justify;
+  padding: 20px 30px;
+  font-size: 18px;
+  line-height: 1.7;
+  box-sizing: border-box;
+}
+
+.about-extra{
+  max-width:800px;
+  margin:30px auto;
+  background:#0a3d62;
+  color:white;
+  padding:20px;
+  border-radius:10px;
+}
+
+.about-slogan{
+  display:inline-block;
+  margin:20px auto 50px auto;
+  padding:10px 20px;
+  font-size:18px;
+  font-weight:600;
+  color:#ffdd59;
+  background:#1a1a2e;
+  border-radius:8px;
+}
+
+/* FADE-IN ANIMATION */
+.fade-text{
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+
+/* FOOTER */
+footer{
+  background:#1a1a2e;
+  color:white;
+  padding:20px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  header{
+    flex-direction:column;
+  }
+
+  .course-container{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .channel-buttons{
+    flex-direction:column;
+  }
+}
