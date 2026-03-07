@@ -6,6 +6,7 @@ body{
   text-align:center;
 }
 
+/* HEADER */
 header{
   background:#1a1a2e;
   color:white;
@@ -24,7 +25,7 @@ header{
 
 .logo img{
   width:50px;
-  height:auto;
+  height:50px;
   object-fit:cover;
   border-radius:50%;
 }
@@ -35,7 +36,7 @@ nav{
   gap:15px;
 }
 
-/* HEADER NAV LINKS */
+/* HEADER LINKS */
 nav a{
   color:white;
   text-decoration:none;
@@ -48,10 +49,10 @@ nav a:hover{
 
 /* HEADER ICON (RIGHT SIDE) */
 .header-icon{
-  width:50px;       /* circle size */
-  height:50px;      /* circle size */
+  width:50px;
+  height:50px;
   border-radius:50%;
-  object-fit:cover;  /* image poora fill ho */
+  object-fit:cover;
   cursor:pointer;
   margin-left:10px;
   transition: transform 0.3s ease;
@@ -101,7 +102,7 @@ nav a:hover{
   background:#ffcc00;
 }
 
-/* FOLLOW US heading + description */
+/* FOLLOW US */
 .follow-text h3{
   margin-top:20px;
   margin-bottom:5px;
@@ -185,10 +186,10 @@ nav a:hover{
 }
 
 .course-box img{
-  width: auto;
-  height: 60px;
-  object-fit: contain;
-  margin-bottom: 15px;
+  width:auto;
+  height:60px;
+  object-fit:contain;
+  margin-bottom:15px;
 }
 
 /* FORM */
@@ -232,14 +233,14 @@ form button:hover{
   padding:50px;
 }
 
-.about-text {
-  width: 100%;
-  max-width: 100%;
-  text-align: justify;
-  padding: 20px 30px;
-  font-size: 18px;
-  line-height: 1.7;
-  box-sizing: border-box;
+.about-text{
+  width:100%;
+  max-width:100%;
+  text-align:justify;
+  padding:20px 30px;
+  font-size:18px;
+  line-height:1.7;
+  box-sizing:border-box;
 }
 
 .about-extra{
@@ -264,8 +265,8 @@ form button:hover{
 
 /* FADE-IN ANIMATION */
 .fade-text{
-  opacity: 0;
-  transform: translateY(20px);
+  opacity:0;
+  transform:translateY(20px);
   transition: all 1s ease;
 }
 
@@ -276,18 +277,49 @@ footer{
   padding:20px;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE / MOBILE */
 @media(max-width:768px){
   header{
     flex-direction:column;
+    align-items:center;
+    gap:10px;
   }
-
-  .course-container{
+  nav{
     flex-direction:column;
+    gap:10px;
     align-items:center;
   }
-
+  .header-icon{
+    margin-left:0;
+    margin-top:5px;
+  }
+  .hero-content h2{
+    font-size:28px;
+  }
+  .hero-content p{
+    font-size:16px;
+  }
+  .hero-btn{
+    width:80%;
+    padding:12px 0;
+  }
   .channel-buttons{
     flex-direction:column;
+    gap:10px;
+  }
+  .course-box{
+    width:90%;
+    max-width:300px;
+    margin:auto;
+  }
+  .about-text{
+    padding:15px 10px;
+  }
+  .about-extra{
+    padding:15px 10px;
+  }
+  .about-slogan{
+    font-size:16px;
+    padding:8px 15px;
   }
 }
