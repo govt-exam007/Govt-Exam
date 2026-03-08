@@ -414,7 +414,29 @@ We also provide correct form fill-up links and essential information about all g
 </div>
 
 </section>
+<div class="rating-box">
+<h3>Rate Our Website</h3>
 
+<div class="star-rating">
+<input type="radio" id="5-stars" name="rating" value="5">
+<label for="5-stars">★</label>
+
+<input type="radio" id="4-stars" name="rating" value="4">
+<label for="4-stars">★</label>
+
+<input type="radio" id="3-stars" name="rating" value="3">
+<label for="3-stars">★</label>
+
+<input type="radio" id="2-stars" name="rating" value="2">
+<label for="2-stars">★</label>
+
+<input type="radio" id="1-star" name="rating" value="1">
+<label for="1-star">★</label>
+</div>
+
+<p id="rating-msg"></p>
+
+</div>
 
 
 <!-- FOOTER -->
@@ -452,9 +474,28 @@ el.style.transform = "translateY(0)";
 
 });
 
+
 </script>
 
 
 </body>
 
 </html>
+<script>
+const stars = document.querySelectorAll('input[name="rating"]');
+const msg = document.getElementById("rating-msg");
+
+stars.forEach(star => {
+star.addEventListener("change", function() {
+localStorage.setItem("websiteRating", this.value);
+msg.innerText = "Thanks for rating " + this.value + " ⭐";
+});
+});
+
+window.onload = function(){
+let saved = localStorage.getItem("websiteRating");
+if(saved){
+msg.innerText = "You rated this site " + saved + " ⭐";
+}
+}
+</script>

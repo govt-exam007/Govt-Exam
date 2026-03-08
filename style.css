@@ -415,3 +415,38 @@ font-size:16px;
 }
 
 }
+.rating-box{
+text-align:center;
+margin-top:20px;
+}
+
+.star-rating{
+direction:rtl;
+display:inline-flex;
+}
+
+.star-rating input{
+display:none;
+}
+
+.star-rating label{
+font-size:30px;
+color:#ccc;
+cursor:pointer;
+transition:0.3s;
+}
+
+.star-rating input:checked ~ label{
+color:gold;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label{
+color:gold;
+}
+
+#rating-msg{
+margin-top:10px;
+font-weight:bold;
+color:green;
+}
