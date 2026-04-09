@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mock Test Instructions</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="images/logo.png" alt="GOVT EXAM Logo" class="site-logo" />
+      <h1>GOVT-EXAM</h1>
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#mock-test">Mock Test</a>
+    </nav>
+  </header>
+
+  <section class="instruction-page">
+    <div class="instruction-card">
+      <h1 id="examTitle">Mock Test Instructions</h1>
+      <p style="text-align:center; color:#555;">Please read all instructions carefully before starting the exam.</p>
+
+      <h3>Instructions:</h3>
+      <ul>
+        <li>Total duration of the test is 10 minutes.</li>
+        <li>Each question has only one correct answer.</li>
+        <li>Click on any option to select your answer.</li>
+        <li>You can move to previous and next question anytime.</li>
+        <li>Do not refresh the page during the exam.</li>
+        <li>After completing the exam, click on submit button.</li>
+        <li>Your score will be shown instantly after submission.</li>
+      </ul>
+
+      <div class="language-box">
+        <h3>Select Language:</h3>
+        <select id="languageSelect">
+          <option value="english">English</option>
+          <option value="hindi">Hindi</option>
+        </select>
+      </div>
+
+      <div class="start-btn-wrap">
+        <button class="hero-btn" id="startExamBtn">Start Exam</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const exam = params.get("exam") || "ssc-mts-paper-1";
+
+    const examNames = {
+      "ssc-mts-paper-1": "SSC MTS PAPER-1 Instructions",
+      "ssc-mts-paper-2": "SSC MTS PAPER-2 Instructions",
+      "ssc-mts-gk": "SSC MTS GK Instructions",
+      "ssc-mts-reasoning": "SSC MTS REASONING Instructions",
+      "ssc-mts-math": "SSC MTS MATH Instructions",
+
+      "ssc-chsl-paper-1": "SSC CHSL PAPER-1 Instructions",
+      "ssc-chsl-paper-2": "SSC CHSL PAPER-2 Instructions",
+      "ssc-chsl-gk": "SSC CHSL GK Instructions",
+      "ssc-chsl-reasoning": "SSC CHSL REASONING Instructions",
+      "ssc-chsl-math": "SSC CHSL MATH Instructions",
+
+      "ssc-gd-paper-1": "SSC GD PAPER-1 Instructions",
+      "ssc-gd-gk": "SSC GD GK Instructions",
+      "ssc-gd-reasoning": "SSC GD REASONING Instructions",
+      "ssc-gd-math": "SSC GD MATH Instructions",
+
+      "ssc-cgl-tier-1": "SSC CGL TIER-1 Instructions",
+      "ssc-cgl-tier-2": "SSC CGL TIER-2 Instructions",
+      "ssc-cgl-gk": "SSC CGL GK Instructions",
+      "ssc-cgl-reasoning": "SSC CGL REASONING Instructions",
+      "ssc-cgl-math": "SSC CGL MATH Instructions",
+
+      "rrb-ntpc-cbt-1": "RRB NTPC CBT-1 Instructions",
+      "rrb-ntpc-cbt-2": "RRB NTPC CBT-2 Instructions",
+      "rrb-ntpc-gk": "RRB NTPC GK Instructions",
+      "rrb-ntpc-reasoning": "RRB NTPC REASONING Instructions",
+      "rrb-ntpc-math": "RRB NTPC MATH Instructions",
+
+      "group-d-paper-1": "GROUP D PAPER-1 Instructions",
+      "group-d-gk": "GROUP D GK Instructions",
+      "group-d-reasoning": "GROUP D REASONING Instructions",
+      "group-d-math": "GROUP D MATH Instructions"
+    };
+
+    document.getElementById("examTitle").innerText =
+      examNames[exam] || "Mock Test Instructions";
+
+    document.getElementById("startExamBtn").addEventListener("click", function () {
+      const lang = document.getElementById("languageSelect").value;
+      window.location.href = `exam.html?exam=${exam}&lang=${lang}`;
+    });
+  </script>
+</body>
+</html>

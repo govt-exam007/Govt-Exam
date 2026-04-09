@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mock Test Exam</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="images/logo.png" alt="GOVT EXAM Logo" class="site-logo" />
+      <h1>GOVT-EXAM</h1>
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#mock-test">Mock Test</a>
+    </nav>
+  </header>
+
+  <section class="exam-page">
+    <div class="exam-card">
+      <div class="exam-topbar">
+        <div class="exam-title" id="examName">Mock Test</div>
+        <div class="exam-timer" id="timer">Time Left: 10:00</div>
+      </div>
+
+      <div class="question-box">
+        <h2 id="questionText">Question will appear here</h2>
+        <div class="options-list" id="optionsList"></div>
+      </div>
+
+      <div class="exam-controls">
+        <button class="exam-btn prev-btn" id="prevBtn">Previous</button>
+        <button class="exam-btn next-btn" id="nextBtn">Next</button>
+        <button class="exam-btn submit-btn" id="submitBtn">Submit Exam</button>
+      </div>
+
+      <div class="result-box" id="resultBox">
+        <h3>Exam Submitted Successfully</h3>
+        <p id="scoreText"></p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const exam = params.get("exam") || "ssc-mts-paper-1";
+    const lang = params.get("lang") || "english";
+
+    const examNames = {
+      "ssc-mts-paper-1": "SSC MTS PAPER-1",
+      "ssc-mts-paper-2": "SSC MTS PAPER-2",
+      "ssc-mts-gk": "SSC MTS GK",
+      "ssc-mts-reasoning": "SSC MTS REASONING",
+      "ssc-mts-math": "SSC MTS MATH",
+
+      "ssc-chsl-paper-1": "SSC CHSL PAPER-1",
+      "ssc-chsl-paper-2": "SSC CHSL PAPER-2",
+      "ssc-chsl-gk": "SSC CHSL GK",
+      "ssc-chsl-reasoning": "SSC CHSL REASONING",
+      "ssc-chsl-math": "SSC CHSL MATH",
+
+      "ssc-gd-paper-1": "SSC GD PAPER-1",
+      "ssc-gd-gk": "SSC GD GK",
+      "ssc-gd-reasoning": "SSC GD REASONING",
+      "ssc-gd-math": "SSC GD MATH",
+
+      "ssc-cgl-tier-1": "SSC CGL TIER-1",
+      "ssc-cgl-tier-2": "SSC CGL TIER-2",
+      "ssc-cgl-gk": "SSC CGL GK",
+      "ssc-cgl-reasoning": "SSC CGL REASONING",
+      "ssc-cgl-math": "SSC CGL MATH",
+
+      "rrb-ntpc-cbt-1": "RRB NTPC CBT-1",
+      "rrb-ntpc-cbt-2": "RRB NTPC CBT-2",
+      "rrb-ntpc-gk": "RRB NTPC GK",
+      "rrb-ntpc-reasoning": "RRB NTPC REASONING",
+      "rrb-ntpc-math": "RRB NTPC MATH",
+
+      "group-d-paper-1": "GROUP D PAPER-1",
+      "group-d-gk": "GROUP D GK",
+      "group-d-reasoning": "GROUP D REASONING",
+      "group-d-math": "GROUP D MATH"
+    };
+
+    document.getElementById("examName").innerText = examNames[exam] || "Mock Test";
+
+    const sampleQuestions = [
+      {
+        english: {
+          question: "What is 25% of 200?",
+          options: ["25", "50", "75", "100"],
+          answer: "50"
+        },
+        hindi: {
+          question: "200 का 25% कितना होगा?",
+          options: ["25", "50", "75", "100"],
+          answer: "50"
+        }
+      },
+      {
+        english: {
+          question: "Which is the national animal of India?",
+          options: ["Lion", "Tiger", "Elephant", "Leopard"],
+          answer: "Tiger"
+        },
+        hindi: {
+          question: "भारत का राष्ट्रीय पशु कौन है?",
+          options: ["शेर", "बाघ", "हाथी", "तेंदुआ"],
+          answer: "बाघ"
+        }
+      },
+      {
+        english: {
+          question: "5 + 7 × 2 = ?",
+          options: ["24", "19", "26", "14"],
+          answer: "19"
+        },
+        hindi: {
+          question: "5 + 7 × 2 = ?",
+          options: ["24", "19", "26", "14"],
+          answer: "19"
+        }
+      },
+      {
+        english: {
+          question: "How many days are there in a week?",
+          options: ["5", "6", "7", "8"],
+          answer: "7"
+        },
+        hindi: {
+          question: "एक सप्ताह में कितने दिन होते हैं?",
+          options: ["5", "6", "7", "8"],
+          answer: "7"
+        }
+      },
+      {
+        english: {
+          question: "Which planet is known as the Red Planet?",
+          options: ["Earth", "Mars", "Venus", "Jupiter"],
+          answer: "Mars"
+        },
+        hindi: {
+          question: "कौन सा ग्रह लाल ग्रह कहलाता है?",
+          options: ["पृथ्वी", "मंगल", "शुक्र", "बृहस्पति"],
+          answer: "मंगल"
+        }
+      }
+    ];
+
+    let currentQuestion = 0;
+    let selectedAnswers = new Array(sampleQuestions.length).fill(null);
+
+    const questionText = document.getElementById("questionText");
+    const optionsList = document.getElementById("optionsList");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const submitBtn = document.getElementById("submitBtn");
+    const resultBox = document.getElementById("resultBox");
+    const scoreText = document.getElementById("scoreText");
+
+    function renderQuestion() {
+      const data = sampleQuestions[currentQuestion][lang] || sampleQuestions[currentQuestion]["english"];
+      questionText.innerText = `${currentQuestion + 1}. ${data.question}`;
+      optionsList.innerHTML = "";
+
+      data.options.forEach((option) => {
+        const btn = document.createElement("button");
+        btn.className = "option-btn";
+        btn.innerText = option;
+
+        if (selectedAnswers[currentQuestion] === option) {
+          btn.classList.add("selected");
+        }
+
+        btn.addEventListener("click", function () {
+          selectedAnswers[currentQuestion] = option;
+          renderQuestion();
+        });
+
+        optionsList.appendChild(btn);
+      });
+    }
+
+    prevBtn.addEventListener("click", function () {
+      if (currentQuestion > 0) {
+        currentQuestion--;
+        renderQuestion();
+      }
+    });
+
+    nextBtn.addEventListener("click", function () {
+      if (currentQuestion < sampleQuestions.length - 1) {
+        currentQuestion++;
+        renderQuestion();
+      }
+    });
+
+    submitBtn.addEventListener("click", function () {
+      let score = 0;
+
+      sampleQuestions.forEach((q, index) => {
+        const data = q[lang] || q["english"];
+        if (selectedAnswers[index] === data.answer) {
+          score++;
+        }
+      });
+
+      resultBox.style.display = "block";
+      scoreText.innerText = `Your Score: ${score} / ${sampleQuestions.length}`;
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    });
+
+    let timeLeft = 600;
+    const timer = document.getElementById("timer");
+
+    const countdown = setInterval(() => {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      timer.innerText = `Time Left: ${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+      if (timeLeft <= 0) {
+        clearInterval(countdown);
+        submitBtn.click();
+      }
+
+      timeLeft--;
+    }, 1000);
+
+    renderQuestion();
+  </script>
+</body>
+</html>

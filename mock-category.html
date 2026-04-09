@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mock Test Category - GOVT-EXAM</title>
+
+  <meta
+    name="description"
+    content="Choose mock test practice sets for government exam preparation."
+  />
+
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="images/logo.png" alt="GOVT EXAM Logo" class="site-logo" />
+      <h1>GOVT-EXAM</h1>
+    </div>
+
+    <nav>
+      <a href="index.html#home">Home</a>
+      <a href="#category-page-section">Mock Test</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About Us</a>
+      <img src="images/admin.png" alt="Admin Icon" class="header-icon" />
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2 class="fade-text" id="heroExamTitle">Mock Test Category</h2>
+
+      <p class="fade-text" id="heroExamDesc">
+        Practice topic-wise mock tests and improve your exam preparation.
+      </p>
+
+      <div class="follow-text fade-text">
+        <h3>Follow Us</h3>
+        <p>Check our YouTube channel, Telegram community, and Instagram page</p>
+      </div>
+
+      <div class="channel-buttons fade-text">
+        <a href="https://www.youtube.com/@govt-exam007" target="_blank" class="youtube-btn">YouTube</a>
+        <a href="https://t.me/govtexam007" target="_blank" class="telegram-btn">Telegram</a>
+        <a href="https://www.instagram.com/radhakrishnasoulz" target="_blank" class="instagram-btn">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="category-page-section">
+    <div class="mock-wrapper">
+      <div class="mock-heading">
+        <h2 id="categoryHeading">Practice Sets</h2>
+      </div>
+
+      <div class="category-container" id="categoryContainer"></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+
+    <div class="about-container">
+      <div class="about-text">
+        <p>
+          GOVT-EXAM is your ultimate platform for government exam preparation.
+          We provide study material, guidance, mock tests, and useful learning
+          resources for SSC, UPSC, BPSC and other competitive exams.
+        </p>
+
+        <p>
+          Our mission is to make learning accessible and easy for every student.
+          We provide reliable information, practice support, and free resources
+          for aspirants.
+        </p>
+      </div>
+    </div>
+
+    <div class="about-extra">
+      <p>
+        Our website is a dedicated platform for Government Exam preparation.
+        Here you get free classes, personalized guidance, practice content, and
+        mock-test based learning support to improve your exam performance.
+      </p>
+    </div>
+
+    <div class="about-slogan">
+      <strong>Failure is the Way of Success</strong>
+    </div>
+  </section>
+
+  <div class="rating-box">
+    <h3>Rate Our Website</h3>
+
+    <div class="star-rating">
+      <input type="radio" id="5-stars" name="rating" value="5" />
+      <label for="5-stars">★</label>
+
+      <input type="radio" id="4-stars" name="rating" value="4" />
+      <label for="4-stars">★</label>
+
+      <input type="radio" id="3-stars" name="rating" value="3" />
+      <label for="3-stars">★</label>
+
+      <input type="radio" id="2-stars" name="rating" value="2" />
+      <label for="2-stars">★</label>
+
+      <input type="radio" id="1-star" name="rating" value="1" />
+      <label for="1-star">★</label>
+    </div>
+
+    <p id="rating-msg"></p>
+  </div>
+
+  <footer>
+    <p>© 2026 GOVT-EXAM</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const params = new URLSearchParams(window.location.search);
+      const exam = params.get("exam") || "ssc-mts";
+
+      const examData = {
+        "ssc-mts": {
+          title: "SSC MTS Mock Test",
+          desc: "Practice SSC MTS mock tests, topic-wise sets, and exam-oriented questions to boost your preparation.",
+          heading: "SSC MTS Practice Sets",
+          items: [
+            { title: "SSC MTS {PAPER-1}", count: "35 Practice Set", lang: "Hindi", slug: "ssc-mts-paper-1" },
+            { title: "SSC MTS {PAPER-2}", count: "35 Practice Set", lang: "Hindi", slug: "ssc-mts-paper-2" },
+            { title: "SSC MTS {GK}", count: "15 Practice Set", lang: "Hindi", slug: "ssc-mts-gk" },
+            { title: "SSC MTS {REASONING}", count: "12 Practice Set", lang: "Hindi", slug: "ssc-mts-reasoning" },
+            { title: "SSC MTS {MATH}", count: "9 Practice Set", lang: "Hindi", slug: "ssc-mts-math" }
+          ]
+        },
+        "ssc-chsl": {
+          title: "SSC CHSL Mock Test",
+          desc: "Practice SSC CHSL mock tests and subject-wise sets for better exam preparation.",
+          heading: "SSC CHSL Practice Sets",
+          items: [
+            { title: "SSC CHSL {PAPER-1}", count: "25 Practice Set", lang: "Hindi", slug: "ssc-chsl-paper-1" },
+            { title: "SSC CHSL {PAPER-2}", count: "20 Practice Set", lang: "Hindi", slug: "ssc-chsl-paper-2" },
+            { title: "SSC CHSL {GK}", count: "10 Practice Set", lang: "Hindi", slug: "ssc-chsl-gk" },
+            { title: "SSC CHSL {REASONING}", count: "10 Practice Set", lang: "Hindi", slug: "ssc-chsl-reasoning" },
+            { title: "SSC CHSL {MATH}", count: "10 Practice Set", lang: "Hindi", slug: "ssc-chsl-math" }
+          ]
+        },
+        "ssc-gd": {
+          title: "SSC GD Mock Test",
+          desc: "Practice SSC GD mock tests and improve your score with exam-oriented sets.",
+          heading: "SSC GD Practice Sets",
+          items: [
+            { title: "SSC GD {PAPER-1}", count: "20 Practice Set", lang: "Hindi", slug: "ssc-gd-paper-1" },
+            { title: "SSC GD {GK}", count: "10 Practice Set", lang: "Hindi", slug: "ssc-gd-gk" },
+            { title: "SSC GD {REASONING}", count: "10 Practice Set", lang: "Hindi", slug: "ssc-gd-reasoning" },
+            { title: "SSC GD {MATH}", count: "10 Practice Set", lang: "Hindi", slug: "ssc-gd-math" }
+          ]
+        },
+        "ssc-cgl": {
+          title: "SSC CGL Mock Test",
+          desc: "Practice SSC CGL mock tests, paper-wise sets and topic-wise preparation.",
+          heading: "SSC CGL Practice Sets",
+          items: [
+            { title: "SSC CGL {TIER-1}", count: "25 Practice Set", lang: "Hindi", slug: "ssc-cgl-tier-1" },
+            { title: "SSC CGL {TIER-2}", count: "20 Practice Set", lang: "Hindi", slug: "ssc-cgl-tier-2" },
+            { title: "SSC CGL {GK}", count: "10 Practice Set", lang: "Hindi", slug: "ssc-cgl-gk" },
+            { title: "SSC CGL {REASONING}", count: "10 Practice Set", lang: "Hindi", slug: "ssc-cgl-reasoning" },
+            { title: "SSC CGL {MATH}", count: "10 Practice Set", lang: "Hindi", slug: "ssc-cgl-math" }
+          ]
+        },
+        "rrb-ntpc": {
+          title: "RRB NTPC Mock Test",
+          desc: "Practice RRB NTPC mock tests with subject-wise and paper-wise practice sets.",
+          heading: "RRB NTPC Practice Sets",
+          items: [
+            { title: "RRB NTPC {CBT-1}", count: "20 Practice Set", lang: "Hindi", slug: "rrb-ntpc-cbt-1" },
+            { title: "RRB NTPC {CBT-2}", count: "20 Practice Set", lang: "Hindi", slug: "rrb-ntpc-cbt-2" },
+            { title: "RRB NTPC {GK}", count: "10 Practice Set", lang: "Hindi", slug: "rrb-ntpc-gk" },
+            { title: "RRB NTPC {REASONING}", count: "10 Practice Set", lang: "Hindi", slug: "rrb-ntpc-reasoning" },
+            { title: "RRB NTPC {MATH}", count: "10 Practice Set", lang: "Hindi", slug: "rrb-ntpc-math" }
+          ]
+        },
+        "group-d": {
+          title: "GROUP D Mock Test",
+          desc: "Practice GROUP D mock tests and improve your exam performance with practice sets.",
+          heading: "GROUP D Practice Sets",
+          items: [
+            { title: "GROUP D {PAPER-1}", count: "20 Practice Set", lang: "Hindi", slug: "group-d-paper-1" },
+            { title: "GROUP D {GK}", count: "10 Practice Set", lang: "Hindi", slug: "group-d-gk" },
+            { title: "GROUP D {REASONING}", count: "10 Practice Set", lang: "Hindi", slug: "group-d-reasoning" },
+            { title: "GROUP D {MATH}", count: "10 Practice Set", lang: "Hindi", slug: "group-d-math" }
+          ]
+        }
+      };
+
+      const selected = examData[exam] || examData["ssc-mts"];
+
+      document.getElementById("heroExamTitle").innerText = selected.title;
+      document.getElementById("heroExamDesc").innerText = selected.desc;
+      document.getElementById("categoryHeading").innerText = selected.heading;
+
+      const container = document.getElementById("categoryContainer");
+
+      selected.items.forEach((item) => {
+        const box = document.createElement("a");
+        box.href = `instructions.html?exam=${item.slug}`;
+        box.className = "category-box";
+
+        box.innerHTML = `
+          <div class="category-box-top">${item.title}</div>
+          <div class="category-box-body">
+            <p>${item.count}</p>
+            <p>${item.lang}</p>
+          </div>
+          <div class="category-box-bottom">Open</div>
+        `;
+
+        container.appendChild(box);
+      });
+
+      const faders = document.querySelectorAll(".fade-text");
+      faders.forEach((el, index) => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(20px)";
+        setTimeout(() => {
+          el.style.transition = "all 0.8s ease";
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
+        }, 200 * index);
+      });
+
+      const stars = document.querySelectorAll('input[name="rating"]');
+      const msg = document.getElementById("rating-msg");
+
+      stars.forEach((star) => {
+        star.addEventListener("change", function () {
+          localStorage.setItem("websiteRating", this.value);
+          msg.innerText = "Thanks for rating " + this.value + " ⭐";
+        });
+      });
+
+      let saved = localStorage.getItem("websiteRating");
+      if (saved) {
+        msg.innerText = "You rated this site " + saved + " ⭐";
+      }
+    });
+  </script>
+</body>
+</html>
